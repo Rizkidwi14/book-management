@@ -128,14 +128,16 @@ public class BookController {
 
     // Delete a book
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    public ResponseEntity<Map<String, String>> deleteBook(@PathVariable Long id) {
         if (bookService.getBookById(id).isEmpty()) {
             throw new BookNotFoundException(id);
         }
 
         bookService.deleteBook(id);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(
+                Map.of("message", "Book deleted successfully.")
+        );
     }
 
     private String stringValue(Map<String, Object> updates, String field) {
