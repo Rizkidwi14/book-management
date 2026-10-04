@@ -50,7 +50,7 @@ Replace `your_postgres_password` with your PostgreSQL password.
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Rizkidwi14/book-management.git
 cd book-management
 ```
 
